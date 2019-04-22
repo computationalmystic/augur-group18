@@ -17,6 +17,7 @@ import MainControls from '../components/MainControls.vue'
 import AugurHeader from '../components/AugurHeader.vue'
 import Tabs from '../components/Tabs.vue'
 import TableView from '../components/TableView.vue'
+import Group18Card from '../components/Group18Card.vue'
 
 let routes = [
         {path: '/', component: AugurCards,
@@ -32,9 +33,9 @@ let routes = [
         ]
       },
       {path: '/login', component: LoginForm},
-      {path: '/metrics_status', 
+      {path: '/metrics_status',
         component: MetricsStatusCard
-      }, 
+      },
       {path: '/single/:owner?/:repo', name: 'single', props: true, canReuse: false, component: AugurCards,
         children: [
           {
@@ -105,6 +106,16 @@ let routes = [
               tabs: Tabs,
               controls: MainControls,
               content: GitCard
+            }
+          },
+          {
+            path: "group18",
+            name: "group18",
+            components: {
+              header: AugurHeader,
+              tabs: Tabs,
+              controls: MainControls,
+              content: Group18Card
             }
           },
           {

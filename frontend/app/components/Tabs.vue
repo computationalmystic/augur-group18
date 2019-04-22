@@ -6,8 +6,9 @@
           <li :class="{ active: (currentTab == 'risk') }"><a href="#" @click="changeTab" data-value="risk">Risk</a></li>
           <li :class="{ active: (currentTab == 'value') }"><a href="#" @click="changeTab" data-value="value">Value</a></li>
           <li :class="{ active: (currentTab == 'activity') }"><a href="#" @click="changeTab" data-value="activity">Activity</a></li>
-          <li :class="{ active: (currentTab == 'experimental') }"><a href="#" @click="changeTab" data-value="experimental">Experimental</a></li>  
+          <li :class="{ active: (currentTab == 'experimental') }"><a href="#" @click="changeTab" data-value="experimental">Experimental</a></li>
           <li :class="{ active: (currentTab == 'git'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="git">Git</a></li>
+          <li :class="{ active: (currentTab == 'group18'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="group18">Group 18</a></li>
           <li :class="{ active: (currentTab == 'overview'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="overview">Overview</a></li>
           <!-- <li :class="{ active: (currentTab == 'git'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="git">Git</a></li> -->
         </ul>
@@ -46,7 +47,7 @@ module.exports = {
         this.$router.push({
           name,
           params: {owner, repo, comparedowner, comparedrepo}
-        })        
+        })
       } else if (this.$store.state.comparedRepos.length > 1) {
         let groupid = (this.gitRepo ? String(this.gitRepo) + '+' : String(state.baseRepo) + "+")
             this.comparedRepos.forEach((repo) => {
@@ -65,8 +66,8 @@ module.exports = {
           params: {owner, repo}
         })
       }
-      
+
     },
   }
 };
-</script> 
+</script>

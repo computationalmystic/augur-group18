@@ -5,7 +5,7 @@
       <h2 style="display: inline-block; color: black !important">{{ $store.state.baseRepo }}</h2>
       <h2 style="display: inline-block;" class="repolisting" v-if="$store.state.comparedRepos.length > 0"> compared to: </h2>
       <h2 style="display: inline-block;" v-for="(repo, index) in $store.state.comparedRepos">
-        <span v-bind:style="{ 'color': colors[index] }" class="repolisting"> {{ repo }} </span> 
+        <span v-bind:style="{ 'color': colors[index] }" class="repolisting"> {{ repo }} </span>
       </h2>
     </div>
 
