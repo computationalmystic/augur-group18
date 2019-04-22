@@ -22,6 +22,7 @@
                     title="Repo Openness"
                     cite-url=""
                     cite-text="Repo Openness"
+                    :data="values['openness']"
                     >
         </dynamic-line-chart>
       </div>
@@ -51,5 +52,33 @@ module.exports = {
     DualAxisContributions
   }
 }
+
+created () {
+      //THIS BLOCK EXECUTES WHENEVER THIS CARD FILE GETS RENDERED,
+      // IF YOU WANT TO CALL YOUR ENDPOINT IN YOUR CARD FILE,
+      // THIS IS WHERE/HOW YOU SHOULD DO IT:
+
+      let repo = window.AugurAPI.Repo({ githubURL: this.repo })
+      repo[this.source]().then((data) => {
+        // IF YOU ARE CREATING YOUR OWN CHART FILE, SET THIS.VALUES LIKE THIS
+        //this.values['endpoint_name'] = data
+
+        // IF YOU ARE USING THE DYNAMIC LINE CHART, SET IT LIKE THIS
+        this.values['openness'][this.repo]['openness']
+        // this is so that 'this.values['endpoint_name'] = ' something with the following format (this is how DynamicLineChart.vue wants the data to be formatted):
+            /*
+            {
+            	repo_name: {
+            		endpoint_name: {
+            			[
+            				{data}, {data}, {data}
+            			]
+            		}
+            	}
+            }
+            */
+      })
+      //FINISH CALLING ENDPOINT
+  }
 
 </script>

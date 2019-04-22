@@ -7,7 +7,7 @@
       <!-- <div class="row">
         <div class="col col-4" ><input type="radio" name="timeoption" value="month" v-model="timeperiod">Month</div>
         <div class="col col-4" ><input type="radio" name="timeoption" value="year" v-model="timeperiod">Year</div>
-        <div class="col col-4" ><input type="radio" name="timeoption" value="all" v-model="timeperiod">All</div>        
+        <div class="col col-4" ><input type="radio" name="timeoption" value="all" v-model="timeperiod">All</div>
       </div> -->
       <vega-lite :spec="spec" :data="values"></vega-lite>
       <p> {{ chart }} </p>
@@ -70,7 +70,7 @@ export default {
       function (state) {
         console.log("WORKED")
         this.thisShouldTriggerRecompute()
-        return 
+        return
       },
       // // Run this callback
       // callback
@@ -191,7 +191,7 @@ export default {
         ]
       }
 
-      
+
       if(!this.showDetail) brush = {"filter": "datum.date > 0"}
 
       //cannot have duplicate selection, so keep track if it has already been added
@@ -264,7 +264,7 @@ export default {
           }
       }
 
-      let getToolPoint = (key) => { 
+      let getToolPoint = (key) => {
         let selection = (!selectionAdded ? {
               "tooltip": {
                 "type": "single",
@@ -570,12 +570,12 @@ export default {
         repos.forEach((repo) => {
           buildLines("valueRolling" + repo, colors[color])
 
-          if(this.rawWeekly) 
+          if(this.rawWeekly)
             config.vconcat[0].layer.push(getRawLine("value" + repo, colors[color]))
           // if user doesn't want detail, then set vconcat to og
-          if(this.showDetail) 
+          if(this.showDetail)
             config.vconcat[1] = getDetail("valueRolling" + this.repo)
-          else if (config.vconcat[1]) 
+          else if (config.vconcat[1])
             config.vconcat.pop()
           color++
         });
@@ -779,7 +779,7 @@ export default {
               buildLines(data[repo], (obj, key, field, count) => {
                 // Build basic chart using rolling averages
                 let d = defaultProcess(obj, key, field, count)
-                
+
                 let rolling = null
                 if (repo == this.repo) baseDate = d[0].date
                 else d = AugurStats.alignDates(d, baseDate, this.period)
@@ -795,7 +795,7 @@ export default {
 
                     for (var i = 0; i < baselineVals.length; i++){
                     if (rolling[i] && baselineVals[i])
-                      rolling[i].valueRolling -= baselineVals[i].valueRolling                   
+                      rolling[i].valueRolling -= baselineVals[i].valueRolling
                     }
                   }
                 } else {
@@ -840,7 +840,7 @@ export default {
                 })
                 values.push.apply(values, temp)
               }
-            })  
+            })
 
             this.legendLabels = legend
             this.values = values
@@ -867,7 +867,7 @@ export default {
       if (this.data) {
         processData(this.data)
       } else {
-        
+
         window.AugurAPI.batchMapped(repos, endpoints).then((data) => {
           processData(data)
         }, () => {
@@ -909,6 +909,7 @@ export default {
     }
   },// end methods
   created () {
+      console.log(source)
       var query_string = "chart_mapping=" + this.source
       window.AugurAPI.getMetricsStatus(query_string).then((data) => {
         this.metricSource = data[0].data_source
