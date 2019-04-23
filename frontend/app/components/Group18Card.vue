@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       <div class="col col-6">
-        <dynamic-line-chart source="totalCommitters"
+        <dynamic-line-chart source="codeCommits"
                     title="Top Authors By Commit"
                     cite-url=""
                     cite-text="Authors by Commit">
@@ -26,7 +26,7 @@
         </dynamic-line-chart>
       </div>
       <div class="col col-12">
-        <h3>Days until this Repo is considered inactive:  </h3>
+        <h3>Days until this Repo is considered inactive:  100</h3>
       </div>
     </div>
   </section>
