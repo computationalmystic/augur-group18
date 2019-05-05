@@ -10,11 +10,12 @@
     </div>
     <div class="row">
       <div class="col col-6">
-        <dynamic-line-chart source="codeCommits"
+        <!-- <dynamic-line-chart source="codeCommits"
                     title="Top Authors By Commit"
                     cite-url=""
                     cite-text="Authors by Commit">
-        </dynamic-line-chart>
+        </dynamic-line-chart> -->
+        <top-authors></top-authors>
       </div>
 
       <div class="col col-6">
@@ -37,6 +38,7 @@ import DynamicLineChart from './charts/DynamicLineChart'
 import BubbleChart from './charts/BubbleChart'
 import StackedBarChart from './charts/StackedBarChart'
 import DualAxisContributions from './charts/DualAxisContributions'
+import TopAuthors from './charts/TopAuthors'
 
 module.exports = {
   data() {
@@ -48,7 +50,8 @@ module.exports = {
     DynamicLineChart,
     BubbleChart,
     StackedBarChart,
-    DualAxisContributions
+    DualAxisContributions,
+    TopAuthors
   }
 }
 </script>
