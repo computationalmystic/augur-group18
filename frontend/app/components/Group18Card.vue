@@ -15,7 +15,8 @@
                     cite-url=""
                     cite-text="Authors by Commit">
         </dynamic-line-chart> -->
-        <top-authors></top-authors>
+        <!-- <top-authors></top-authors> -->
+        <lines-of-code-chart></lines-of-code-chart>
       </div>
 
       <div class="col col-6">
