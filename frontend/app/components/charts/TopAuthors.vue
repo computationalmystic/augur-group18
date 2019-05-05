@@ -8,8 +8,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="contributor in contributors.slice(0, 10)">
-            <td>{{ contributor.author_email }}</td>
+          <tr v-for="(contributor, index) in contributors.slice(0, 10)">
+            <td>{{index}}. {{ contributor.author_email }}</td>
             <!-- <td v-if="!setYear" v-for="year in years">{{ (contributor[year]) ? contributor[year].additions || 0 : 0}}</td>
             <td v-if="setYear" v-for="month in monthDecimals">{{ (contributor[setYear + '-' + month]) ? contributor[setYear + '-' + month].additions || 0 : 0 }}</td>
             <td v-if="!setYear">{{ contributor.additions }}</td>
