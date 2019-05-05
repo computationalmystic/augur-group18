@@ -5,10 +5,6 @@
         <thead>
           <tr>
             <th>Author</th>
-            <th v-if="!setYear" v-for="year in years" v-on:click="setYear = year" class="clickable-header">{{ year }}</th>
-            <th v-if="setYear" v-for="month in monthNames">{{ month }}</th>
-            <th v-if="!setYear">Total all time</th>
-            <th v-if="setYear" v-on:click="setYear = 0">{{ setYear }}</th>
           </tr>
         </thead>
         <tbody>
