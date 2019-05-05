@@ -22,7 +22,7 @@
         </dynamic-line-chart>
       </div>
       <div class="col col-12">
-        <h3 style="text-align: center" id = "daysLeft">Days until this Repo is considered inactive:  100</h3>
+        <h3 style="text-align: center" id = "daysLeft">Days until this Repo is considered inactive: </h3>
       </div>
     </div>
 
@@ -69,7 +69,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById("daysLeft").innerHTML = days + "d ";
+  document.getElementById("daysLeft").innerHTML += days + "d ";
 
   // If the count down is over, write some text
   if (distance < 0) {
