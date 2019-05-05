@@ -16,7 +16,7 @@
                     cite-text="Authors by Commit">
         </dynamic-line-chart> -->
         <!-- <top-authors></top-authors> -->
-        <lines-of-code-chart></lines-of-code-chart>
+        <!-- <lines-of-code-chart></lines-of-code-chart> -->
       </div>
 
       <div class="col col-6">
@@ -30,6 +30,9 @@
       <div class="col col-12">
         <h3>Days until this Repo is considered inactive:  100</h3>
       </div>
+    </div>
+    <div class="row" style="transform: translateY(-50px) !important">
+      <lines-of-code-chart></lines-of-code-chart>
     </div>
   </section>
 </template>
