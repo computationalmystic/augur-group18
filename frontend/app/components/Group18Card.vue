@@ -69,7 +69,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById("daysLeft").innerHTML += days + "d ";
+  document.getElementById("daysLeft").innerHTML = "Days until the repo is considered inactive " + days + "d ";
 
   // If the count down is over, write some text
   if (distance < 0) {
