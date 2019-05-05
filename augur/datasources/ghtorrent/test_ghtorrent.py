@@ -49,7 +49,7 @@ def test_forks(ghtorrent):
 
 def test_maintainer_response_to_merge_request_duration(ghtorrent):
     assert ghtorrent.maintainer_response_to_merge_request_duration('rails', 'rails').isin(["2011-05-10T00:00:00.000Z"]).any
- 
+
 def test_new_contributing_github_organizations(ghtorrent):
     assert ghtorrent.new_contributing_github_organizations('rails', 'rails').isin(["4066"]).any
 
@@ -57,7 +57,7 @@ def test_open_issues(ghtorrent):
     assert ghtorrent.open_issues('mongodb', 'mongo').isin(["2013-01-05"]).any
 
 def test_pull_request_comments(ghtorrent):
-    assert ghtorrent.pull_request_comments('rails', 'rails').isin(["2011-11-15T00:00:00.000Z"]).any 
+    assert ghtorrent.pull_request_comments('rails', 'rails').isin(["2011-11-15T00:00:00.000Z"]).any
 
 def test_pull_requests_open(ghtorrent):
     assert ghtorrent.pull_requests_open('rails', 'rails').isin(["2013-01-09T00:00:00.000Z"]).any
@@ -104,7 +104,7 @@ def test_contributions(ghtorrent):
     assert ghtorrent.contributions('ariya', 'phantomjs').isin(["ariya"]).any
 
 def test_contributors(ghtorrent):
-    assert ghtorrent.contributors('TTimo', 'doom3.gpl').isin(["sergiocampama"]).any 
+    assert ghtorrent.contributors('TTimo', 'doom3.gpl').isin(["sergiocampama"]).any
 
 def test_project_age(ghtorrent):
     assert ghtorrent.project_age('rails', 'rails').isin(["2008-04-11T00:00:00.000Z"]).any
@@ -112,9 +112,13 @@ def test_project_age(ghtorrent):
 def test_fakes(ghtorrent):
     assert ghtorrent.fakes('rails', 'rails').isin(["2008-09-24T00:00:00.000Z"]).any
 
+# GROUP 18 Unit Test Stubs
 
+# def test_repo_openness(ghtorrent):
+#   this test should check and make sure that the data our repo_openness metric is returning is sensible and usable
 
+# def test_top_by_commit(ghtorrent):
+#   this test should make sure our data for top contributors by commit is present and correct
 
-
-
-
+# def test_archive_repo(ghtorrent):
+#   this test will check to make sure that the archive repo function return data is correct and can be used on the frontend
