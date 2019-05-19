@@ -32,66 +32,7 @@ export default {
     }
     let monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     let monthDecimals = [1,2,3,4,5,6,7,8,9,10,11,12];
-
-      let repo = window.AugurAPI.Repo({ gitURL: this.repo })
-      let contributors = {}
-      let organizations = {}
-
-      let addChanges = (dest, src) => {
-        if (dest && src) {
-          if (typeof dest !== 'object') {
-            dest['additions'] = 0
-            dest['deletions'] = 0
-          }
-          dest['additions'] += (src['additions'] || 0)
-          dest['deletions'] += (src['deletions'] || 0)
-        }
-      }
-
-      let group = (obj, name, change, filter) => {
-        if (filter(change)) {
-          let year = (new Date(change.author_date)).getFullYear()
-          let month = (new Date(change.author_date)).getMonth()
-          obj[change[name]] = obj[change[name]] || { additions: 0, deletions: 0 }
-          addChanges(obj[change[name]], change)
-          obj[change[name]][year] = obj[change[name]][year] || { additions: 0, deletions: 0 }
-          addChanges(obj[change[name]][year], change)
-          obj[change[name]][year + '-' + month] = obj[change[name]][year + '-' + month] || { additions: 0, deletions: 0 }
-          addChanges(obj[change[name]][year + '-' + month], change)
-        }
-      }
-
-      let flattenAndSort = (obj, keyName, sortField) => {
-        return Object.keys(obj)
-            .map((key) => {
-              let d = obj[key]
-              d[keyName] = key
-              return d
-            })
-            .sort((a, b) => {
-              return b[sortField] - a[sortField]
-            })
-      }
-
-      let filterDates = (change) => {
-        return (new Date(change.author_date)).getFullYear() > this.years[0]
-      }
-
-      repo.changesByAuthor().then((changes) => {
-        changes.forEach((change) => {
-          if (isFinite(change.additions) && isFinite(change.deletions)) {
-            group(contributors, 'author_email', change, filterDates)
-            if (change.author_affiliation !== 'Unknown') {
-              group(organizations, 'affiliation', change, filterDates)
-            }
-          }
-        })
-
-        this.contributors = flattenAndSort(contributors, 'author_email', 'additions')
-        this.organizations = flattenAndSort(organizations, 'name', 'additions')
-
-
-      })
+    
     return {
       contributors: [],
       organizations: [],
