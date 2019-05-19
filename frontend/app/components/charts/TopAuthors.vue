@@ -45,7 +45,9 @@ export default {
   computed: {
     repo() {
       return this.$store.state.gitRepo
-    },
+    }
+},
+methods: {
     chart() {
       let repo = window.AugurAPI.Repo({ gitURL: this.repo })
       let contributors = {}
@@ -107,7 +109,11 @@ export default {
 
       })
     }
-  },
+},
+
+mounted: function () {
+    chart();
 }
+  }
 
 </script>
