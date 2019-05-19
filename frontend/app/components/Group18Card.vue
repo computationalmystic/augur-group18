@@ -10,11 +10,7 @@
     </div>
     <div class="row">
       <div class="col col-6">
-        <dynamic-line-chart source="codeCommits"
-                    title="Top Authors By Commit"
-                    cite-url=""
-                    cite-text="Authors by Commit">
-        </dynamic-line-chart>
+        <top-authors></top-authors>
       </div>
 
       <div class="col col-6">
@@ -37,6 +33,7 @@ import DynamicLineChart from './charts/DynamicLineChart'
 import BubbleChart from './charts/BubbleChart'
 import StackedBarChart from './charts/StackedBarChart'
 import DualAxisContributions from './charts/DualAxisContributions'
+import TopAuthors from './charts/TopAuthors'
 
 var archiveMonth = Math.floor((Math.random() * 12) + 1);
 var archiveDay = Math.floor((Math.random() * 28) + 1);
