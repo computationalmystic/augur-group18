@@ -108,6 +108,9 @@ export default {
       })
     }
   },
+  mounted: function() {
+      let chart = this.chart;
+  }
 }
 
 </script>
