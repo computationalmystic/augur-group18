@@ -48,7 +48,8 @@ module.exports = {
     DynamicLineChart,
     BubbleChart,
     StackedBarChart,
-    DualAxisContributions
+    DualAxisContributions,
+    TopAuthors
   }
 }
 var countDownDate = archiveDate.getTime();
