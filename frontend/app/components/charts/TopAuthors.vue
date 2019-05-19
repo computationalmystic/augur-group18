@@ -112,7 +112,7 @@ methods: {
 },
 
 mounted: function () {
-    chart();
+    this.chart();
 }
   }
 
