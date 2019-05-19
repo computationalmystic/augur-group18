@@ -10,7 +10,11 @@
     </div>
     <div class="row">
       <div class="col col-6">
-        <top-authors></top-authors>
+        <dynamic-line-chart source="codeCommits"
+                    title="Top Authors By Commit"
+                    cite-url=""
+                    cite-text="Authors by Commit">
+        </dynamic-line-chart>
       </div>
 
       <div class="col col-6">
@@ -22,10 +26,9 @@
         </dynamic-line-chart>
       </div>
       <div class="col col-12">
-        <h3 style="text-align: center" id = "daysLeft">Days until this Repo is considered inactive: </h3>
+        <h3 style="text-align: center" id = "daysLeft">Days until this Repo is considered inactive:  </h3>
       </div>
     </div>
-
   </section>
 </template>
 <script>
@@ -34,8 +37,10 @@ import DynamicLineChart from './charts/DynamicLineChart'
 import BubbleChart from './charts/BubbleChart'
 import StackedBarChart from './charts/StackedBarChart'
 import DualAxisContributions from './charts/DualAxisContributions'
-import TopAuthors from './charts/TopAuthors'
 
+var archiveMonth = Math.floor((Math.random() * 12) + 1);
+var archiveDay = Math.floor((Math.random() * 28) + 1);
+var archiveDate = new Date(2019, archiveMonth, archiveDay);
 module.exports = {
   data() {
     return {
@@ -46,12 +51,10 @@ module.exports = {
     DynamicLineChart,
     BubbleChart,
     StackedBarChart,
-    DualAxisContributions,
-    TopAuthors
+    DualAxisContributions
   }
 }
-
-var countDownDate = new Date("Jun 5, 2019 00:00:00").getTime();
+var countDownDate = archiveDate.getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -69,21 +72,11 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById("daysLeft").innerHTML = "Days until the repo is considered inactive: " + days + "d ";
-  if(days > 274){
-    document.getElementById("daysLeft").style.color = "green";
-  }
-  else if(days > 180){
-    document.getElementById("daysLeft").style.color = "yellow";
-  }
-  else{
-    document.getElementById("daysLeft").style.color = "red";
-  }
+  document.getElementById("daysLeft").innerHTML = days;
 
   // If the count down is over, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("daysLeft").style.color = "red";
     document.getElementById("daysLeft").innerHTML = "INACTIVE";
   }
 }, 1000);
